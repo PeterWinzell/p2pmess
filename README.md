@@ -64,3 +64,33 @@ Newline-delimited JSON over TCP:
 ```
 
 Keep-alive pings fire every 5 seconds. On disconnect, both sides automatically attempt to reconnect.
+
+## Networking with Tailscale
+
+If the two machines are on different networks or behind VPNs, direct LAN connections won't work. [Tailscale](https://tailscale.com) solves this by creating a private overlay network between your machines.
+
+### Setup
+
+1. Install Tailscale on both machines:
+```bash
+   brew install tailscale        # macOS
+   # or visit https://tailscale.com/download for other platforms
+```
+
+2. Start and authenticate (use the same account on both machines):
+```bash
+   sudo tailscaled &
+   sudo tailscale up
+```
+
+3. Get each machine's Tailscale IP:
+```bash
+   tailscale ip
+```
+   You'll get a `100.x.x.x` address — use these as the Remote Host in p2pmess.
+
+### Notes
+
+- Both machines must be logged into the **same Tailscale account**
+- Tailscale works across different networks, VPNs, and firewalls
+- Run `tailscale status` to see all connected devices and their IPs

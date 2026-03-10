@@ -13,5 +13,9 @@ dependencies = []
 [project.scripts]
 p2pmess = "p2pmess.__main__:main"
 
+[project.urls]
+Homepage = "https://github.com/PeterWinz/p2pmess"
+Repository = "https://github.com/PeterWinz/p2pmess"
+
 [tool.hatch.build.targets.wheel]
 packages = ["p2pmess"]
