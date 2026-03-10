@@ -1,0 +1,17 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "p2pmess"
+version = "0.1.0"
+description = "Peer-to-peer bidirectional TCP text editor"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+p2pmess = "p2pmess.__main__:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["p2pmess"]

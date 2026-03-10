@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-p2p_editor.py — Peer-to-peer bidirectional TCP text editor
+p2p_editor.__main__ — Peer-to-peer bidirectional TCP text editor
 Both peers listen AND connect; first established socket wins.
 Protocol: newline-delimited JSON  {"type": "msg"|"ack"|"ping", "text": str, "ts": str}
 """
@@ -391,7 +391,6 @@ class App(tk.Tk):
         if not text:
             return "break"
         if self._link.send(text):
-            # visual echo: grey out sent text briefly
             self._send_text.config(fg=FG_DIM)
             self.after(300, lambda: self._send_text.config(fg=FG))
             self._info_var.set(f"Sent at {ts()}")
@@ -407,6 +406,10 @@ class App(tk.Tk):
 
 # ──────────────────────────────────────────────────────────────────────────────
 
-if __name__ == "__main__":
+def main():
     app = App()
     app.mainloop()
+
+
+if __name__ == "__main__":
+    main()
