@@ -2,6 +2,9 @@
 
 Peer-to-peer bidirectional TCP text editor. Both peers listen **and** connect simultaneously — whichever socket establishes first wins.
 
+## License
+Apache 2.0 — Copyright (c) 2026 NeuraWin Tech AB.
+
 ## Requirements
 
 Python 3.10+ and tkinter. On systems where tkinter isn't bundled:
@@ -20,7 +23,21 @@ brew install python-tk
 ## Install
 
 ```bash
+
+#From PyPi
+pip install p2pmess --break-system-packages
+
+#pipx
+  #Ubuntu
+  sudo apt install pipx
+  # Mac
+  brew install pipx
+  pipx ensurepath
+
+pipx install p2pmess
+
 # From source (editable/dev)
+
 pip install -e .
 
 # From a built wheel
@@ -28,6 +45,7 @@ pip install dist/p2pmess-0.1.0-py3-none-any.whl
 
 # Directly from GitHub
 pip install git+https://github.com/yourorg/p2pmess.git
+
 ```
 
 ## Build a wheel
